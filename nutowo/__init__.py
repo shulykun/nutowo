@@ -63,7 +63,6 @@ def num2text_noun_part(input_num):
             pass
 
 
-
 def num2text_noun(input_num):
     """
         Перевод числа в текст - существительные
