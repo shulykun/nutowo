@@ -63,11 +63,17 @@ def num2text_noun_part(input_num):
             pass
 
 
+def modify_element(el):
+    if el[0] == 'ноль':
+        el = []
+    return el
+
+
 def num2text_noun(input_num):
     """
         Перевод числа в текст - существительные
     """
-    r = []
+        r = []
     input_num_l = format(int(input_num), ',').split(',')
 
     size = len(input_num_l)
@@ -77,7 +83,11 @@ def num2text_noun(input_num):
         t = list(num2text_noun_part(i))
         t.reverse()
 
-        r = [*r,*t, get_th(size,  t[-1])]
+        element_add = [*t, get_th(size,  t[-1])]
+        element_add = modify_element(element_add)
+
+        r = [*r,*element_add]
+
         r = [i for i in r if len(i)]
         size -= 1
 
